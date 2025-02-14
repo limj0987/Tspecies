@@ -1,0 +1,18 @@
+Package: Tspecies
+Title: Correct Tspecies by Ks-distribution's Variance
+Version: 1.0
+Authors@R: 
+    person("Mijia", "Li", , "mijiali@mail.bnu.edu.cn", role = c("aut", "cre"))
+Description: Tspecies uses a pre-fitted GAM model to predict Ne based on a 
+    given Ks value and a neutral mutation rate miu. The Ks refers to a vector 
+    representing d/L, where d is the base difference between sequences, and L is 
+    the sequence length. We will corrected the Ks value automatically by using 
+    multiple substitution and 2Ne based on our data.
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+LazyData: TRUE
+Imports: 
+    mgcv,
+    stats
