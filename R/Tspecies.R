@@ -23,7 +23,8 @@ Tspecies <- function(Ks, miu) {
   Ks_mean <- mean(corrected_Ks)
   package_path <- system.file(package = "Tspecies")
   if (miu >= 0.0000001) {
-    load(paste0(package_path, "/data/gam_model1.RData"))
+    model_file <- system.file("extdata/gam_model1.RData", package = "Tspecies", mustWork = TRUE)
+    load(model_file)
     model <- gam_model1
   } else if (miu < 0.0000001 & miu >= 0.00000009505) {
     load(paste0(package_path, "/data/gam_model2.RData"))
@@ -32,7 +33,8 @@ Tspecies <- function(Ks, miu) {
     load(paste0(package_path, "/data/gam_model3.RData"))
     model <- gam_model3
   } else if (miu < 0.0000000901 & miu >= 0.00000008515) {
-    load(paste0(package_path, "/data/gam_model4.RData"))
+    model_file <- system.file("extdata/gam_model4.RData", package = "Tspecies", mustWork = TRUE)
+    load(model_file)
     model <- gam_model4
   } else if (miu < 0.00000008515 & miu >= 0.0000000802) {
     load(paste0(package_path, "/data/gam_model5.RData"))
