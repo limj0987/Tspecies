@@ -18,7 +18,7 @@ To install the development version from GitHub:
 
 ```r
 if (!require("devtools")) install.packages("devtools")
-devtools::install_github("[Your_GitHub_Username]/Tspecies")
+devtools::install_github("limj0987/Tspecies")
 ```
 
 ## Quick Start
@@ -77,3 +77,7 @@ Estimated divergence time of the species: 1.32e+06 (in generations)
 - 23 pre-trained GAM models covering *μ* from 1e^-10^ to 1e^-7^
 - Automatic model selection based on *μ* value
 - Nonlinear relationship between *Ks* variance and *Ne*
+
+## Example Used in Paper
+
+Please download the folder "example" and run the Rscript "example.R".
