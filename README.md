@@ -74,7 +74,7 @@ Estimated divergence time of the species: 1.32e+06 (in generations)
 
 ## Model Specifications
 
-- 23 pre-trained GAM models covering *μ* from 1e^-10^ to 1e^-7^
+- 23 pre-trained GAM models covering *μ* from 1e-10 to 1e-7
 - Automatic model selection based on *μ* value
 - Nonlinear relationship between *Ks* variance and *Ne*
 
