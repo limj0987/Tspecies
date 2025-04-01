@@ -7,8 +7,8 @@ An R package for estimating species divergence times using Ks distribution varia
 Tspecies employs a pre-fitted Generalized Additive Model (GAM) to predict ancestral effective population size (*Ne*) based on synonymous substitution rates (*Ks*) and neutral mutation rates (*μ*). It addresses the inherent bias in divergence time estimation by incorporating coalescent theory, where species divergence time differs from gene divergence time by \(2*Ne*\). The package automatically corrects Ks values using multiple substitution models and population genetics principles.
 
 **Key Features**:
-- Corrects divergence time estimates using Ks variance
-- Requires only Ks distributions and neutral mutation rates
+- Corrects divergence time estimates using *Ks* variance
+- Requires only *Ks* distributions and neutral mutation rates
 - Computationally efficient workflow
 - Robust to moderate demographic fluctuations
 
@@ -51,9 +51,9 @@ Tspecies(Ks, miu)
 
 - Numeric value representing estimated species divergence time in generations
 - Console output includes:
-  - Predicted effective population size (Ne)
+  - Predicted effective population size (*Ne*)
   - Divergence time estimate
-  - Warning if divergence time ≤0 (indicating no divergence)
+  - **0** if divergence time ≤0 (indicating no divergence)
 
 ## Workflow Diagram
 
@@ -81,3 +81,15 @@ Estimated divergence time of the species: 1.32e+06 (in generations)
 ## Example Used in Paper
 
 Please download the folder "example" and run the Rscript "example.R".
+
+## License  
+This project is licensed under the **MIT License**.  
+Copyright © 2025 Mijia 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  
+
+For details, see [MIT License](https://opensource.org/licenses/MIT).  

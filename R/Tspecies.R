@@ -1,4 +1,4 @@
-#' @title Correct Tspecies by Ks-distribution's Variance
+#' @title Correcting Species Divergence Time via Ks-Distribution Variance
 #'
 #' @description Tspecies uses a pre-fitted GAM model to predict Ne based on
 #'     a given Ks value and a neutral mutation rate miu. The Ks refers to a vector
@@ -132,10 +132,7 @@ Tspecies <- function(Ks, miu) {
   cat("The predicted number of effective population size is around", Ne, "\n")
   tspc <- Ks_mean/(2*miu) - Ne
   if (tspc <= 0) {
-    cat("Species not divergent yet.\n")
-  } else {
+    tspc <- 0
     cat("Estimated divegence time of the species:", tspc, "(in generations)", "\n")
   }
 }
-
-
