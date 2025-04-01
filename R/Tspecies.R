@@ -133,6 +133,6 @@ Tspecies <- function(Ks, miu) {
   tspc <- Ks_mean/(2*miu) - Ne
   if (tspc <= 0) {
     tspc <- 0
-    cat("Estimated divegence time of the species:", tspc, "(in generations)", "\n")
   }
+  cat("Estimated divegence time of the species:", tspc, "(in generations)", "\n")
 }
