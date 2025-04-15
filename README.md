@@ -65,18 +65,18 @@ Tspecies(Ks, miu)
 [Divergence Time Calculation: T = (Ks_mean/2μ) - 2Ne]
 ```
 
-## Example Output
+## Output Example
 
 ```
-The predicted number of effective population size is around 45218 
+The predicted number of effective population size is around 22609 
 Estimated divergence time of the species: 1.32e+06 (in generations)
 ```
 
 ## Model Specifications
 
-- 23 pre-trained GAM models covering *μ* from 1e-10 to 1e-7
-- Automatic model selection based on *μ* value
-- Nonlinear relationship between *Ks* variance and *Ne*
+- 23 pre-trained GAM models covering *μ* from 1e-10 to 1e-7. All the datasets used in Tspecies are includeded in `inst/extdata` , which are versioned.
+- Automatic model selection based on *μ* value.
+- Nonlinear relationship between *Ks* variance and *Ne*.
 
 ## Example Used in Paper
 

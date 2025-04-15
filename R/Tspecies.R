@@ -23,95 +23,95 @@ Tspecies <- function(Ks, miu) {
   Ks_mean <- mean(corrected_Ks)
   package_path <- system.file(package = "Tspecies")
   if (miu >= 0.0000001) {
-    model_file <- system.file("extdata/gam_model1.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model1_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model1
   } else if (miu < 0.0000001 & miu >= 0.00000009505) {
-    model_file <- system.file("extdata/gam_model2.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model2_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model2
   } else if (miu < 0.00000009505 & miu >= 0.0000000901) {
-    model_file <- system.file("extdata/gam_model3.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model3_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model3
   } else if (miu < 0.0000000901 & miu >= 0.00000008515) {
-    model_file <- system.file("extdata/gam_model4.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model4_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model4
   } else if (miu < 0.00000008515 & miu >= 0.0000000802) {
-    model_file <- system.file("extdata/gam_model5.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model5_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model5
   } else if (miu < 0.0000000802 & miu >= 0.00000007525) {
-    model_file <- system.file("extdata/gam_model6.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model6_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model6
   } else if (miu < 0.00000007525 & miu >= 0.0000000703) {
-    model_file <- system.file("extdata/gam_model7.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model7_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model7
   } else if (miu < 0.0000000703 & miu >= 0.00000006535) {
-    model_file <- system.file("extdata/gam_model8.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model8_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model8
   } else if (miu < 0.00000006535 & miu >= 0.0000000604) {
-    model_file <- system.file("extdata/gam_model9.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model9_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model9
   } else if (miu < 0.0000000604 & miu >= 0.00000005545) {
-    model_file <- system.file("extdata/gam_model10.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model10_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model10
   } else if (miu < 0.00000005545 & miu >= 0.0000000505) {
-    model_file <- system.file("extdata/gam_model11.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model11_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model11
   } else if (miu < 0.0000000505 & miu >= 0.00000004555) {
-    model_file <- system.file("extdata/gam_model12.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model12_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model12
   } else if (miu < 0.00000004555 & miu >= 0.0000000406) {
-    model_file <- system.file("extdata/gam_model13.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model13_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model13
   } else if (miu < 0.0000000406 & miu >= 0.00000003565) {
-    model_file <- system.file("extdata/gam_model14.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model14_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model14
   } else if (miu < 0.00000003565 & miu >= 0.0000000307) {
-    model_file <- system.file("extdata/gam_model15.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model15_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model15
   } else if (miu < 0.0000000307 & miu >= 0.00000002575) {
-    model_file <- system.file("extdata/gam_model16.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model16_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model16
   } else if (miu < 0.00000002575 & miu >= 0.0000000208) {
-    model_file <- system.file("extdata/gam_model17.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model17_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model17
   } else if (miu < 0.0000000208 & miu >= 0.00000001585) {
-    model_file <- system.file("extdata/gam_model18.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model18_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model18
   } else if (miu < 0.00000001585 & miu >= 0.0000000109) {
-    model_file <- system.file("extdata/gam_model19.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model19_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model19
   } else if (miu < 0.0000000109 & miu >= 0.00000000595) {
-    model_file <- system.file("extdata/gam_model20.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model20_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model20
   } else if (miu < 0.00000000595 & miu > 0.00000000055) {
-    model_file <- system.file("extdata/gam_model21.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model21_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model21
   } else if (miu <= 0.00000000055 & miu > 0.0000000001) {
-    model_file <- system.file("extdata/gam_model22.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model22_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model22
   } else if (miu <= 0.0000000001) {
-    model_file <- system.file("extdata/gam_model23.RData", package = "Tspecies", mustWork = TRUE)
+    model_file <- system.file("extdata/gam_model23_1.0.RData", package = "Tspecies", mustWork = TRUE)
     load(model_file)
     model <- gam_model23
   } else {
@@ -128,9 +128,10 @@ Tspecies <- function(Ks, miu) {
     return(result$minimum)
   }
 
-  Ne <- predict_Ne(model, Ks_variance)
+  Ne_2 <- predict_Ne(model, Ks_variance)
+  Ne <- Ne_2/2
   cat("The predicted number of effective population size is around", Ne, "\n")
-  tspc <- Ks_mean/(2*miu) - Ne
+  tspc <- Ks_mean/(2*miu) - Ne_2
   if (tspc <= 0) {
     tspc <- 0
   }
