@@ -6,11 +6,14 @@ Authors@R:
            family = "Li", 
            email = "mijiali@mail.bnu.edu.cn", 
            role = c("aut", "cre"))
-Description: Tspecies uses a pre-fitted GAM model to predict Ne based on a 
-    given Ks value and a neutral mutation rate miu. The Ks refers to a vector 
-    representing d/L, where d is the base difference between sequences, and L is 
-    the sequence length. We will corrected the Ks value automatically by using 
-    multiple substitution and 2Ne based on our data.
+Description: Tspecies uses a pre-fitted GAM model or formula to predict Ne based
+    on a given Ks value and a neutral mutation rate miu (the unit of miu is per 
+    site per generation). The Ks refers to a vector representing d/L, where d is
+    the base difference between sequences, and L is the sequence length. We will
+    corrected the Ks value automatically by using multiple substitution and 2Ne 
+    based on our data (attention if the Ks value has been already corrected). 
+    Additionally, there is another function named 'TspeciesPlot' which can be 
+    used to create a plot of Ks distribution.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -18,4 +21,5 @@ RoxygenNote: 7.3.2
 LazyData: TRUE
 Imports: 
     mgcv,
-    stats
+    stats,
+    ggplot2
