@@ -1,1 +1,10 @@
 .Rproj.user
+.RData
+.Rhistory
+.Rproj.user/
+.Rapp.history
+
+test_results/
+tspecies_output/
+__pycache__/
+.DS_Store
