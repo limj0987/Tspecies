@@ -4,7 +4,7 @@ An R package for estimating species divergence times using *Ks* distribution var
 
 ## Description
 
-Tspecies employs a pre-fitted Generalized Additive Model (GAM) or uses the formula to predict ancestral effective population size (*Ne*) based on synonymous substitution rates (*Ks*) and neutral mutation rates (*μ*). It addresses the inherent bias in divergence time estimation by incorporating coalescent theory, where species divergence time differs from gene divergence time by \(2*Ne*\). The package automatically corrects *Ks* values using multiple substitution models and population genetics principles.
+Tspecies employs a pre-fitted Generalized Additive Model (GAM) or uses the formula to predict ancestral effective population size (*Ne*) based on synonymous substitution rates (*Ks*) and neutral mutation rates (*μ*). It addresses the inherent bias in divergence time estimation by incorporating coalescent theory, where species divergence time differs from gene divergence time by 2*Ne*. The package automatically corrects *Ks* values using multiple substitution models and population genetics principles.
 
 **Key Features**:
 - Corrects divergence time estimates using *Ks* variance
@@ -12,18 +12,18 @@ Tspecies employs a pre-fitted Generalized Additive Model (GAM) or uses the formu
 - Computationally efficient workflow
 - Robust to moderate demographic fluctuations
 
-## Installation
+## 1. Installation for *Ks*-value Input
 
 To install the development version from GitHub:
 
-```r
+```R
 if (!require("devtools")) install.packages("devtools")
 devtools::install_github("limj0987/Tspecies")
 ```
 
-## Quick Start
+### Quick Start
 
-```
+```R
 # Example dataset
 Ks_values <- c(0.257, 0.202, 0.066, 0.197, 0.278, 0.089)
 neutral_mutation_rate <- 8e-8  # 8×10⁻⁸ per generation
@@ -36,7 +36,7 @@ Tspecies(Ks = Ks_values, miu = neutral_mutation_rate)
 
 ### Main Function
 
-```
+```R
 Tspecies(Ks, miu, g)
 ```
 
@@ -64,7 +64,7 @@ Tspecies(Ks, miu, g)
 
 #### Output Example
 
-```
+```R
 The mutation rate is 9.06e-08 per site per generation 
 The predicted number of effective population size is around 50814.1 
 The generation time of this species is 30 years 
@@ -72,7 +72,7 @@ Estimated divegence time of the species: 1443859 (years)
 The corrected_Ks is 0.008720906 
 ```
 
-```
+```R
 Info: Ne will be calculated based on the preset formula.
 The mutation rate is 6.05e-08 per site per generation 
 The predicted number of effective population size is around 1908967 
@@ -83,7 +83,7 @@ The corrected_Ks is 0.7730081
 
 ### Other Function
 
-```
+```R
 TspeciesPlot(Ks, bin = 0.006)
 ```
 
@@ -109,6 +109,87 @@ multiple substitution model: $corrected\hspace{0.1em}K_s=-\frac{3}{4}ln(1-\frac{
 ## Example Used in Paper
 
 Please download the folder "example" and run the Rscript "example.R".
+
+## 2. Installation for Genome Input
+
+Since this pipeline involves Python, R, and several bioinformatics tools (BLAST, MAFFT, KaKs_Calculator), we use Conda to manage dependencies.
+
+1. **Create Conda Environment**
+
+```bash
+conda env create -f environment.yml
+conda activate tspecies_env
+```
+
+2. **Install Tspecies R Package (Local Installation)**
+
+You must install the R package inside the Conda environment so the automation script can access it. Since you have already downloaded the repository, install it locally:
+
+```bash
+# Ensure tspecies_env is activated
+R -e 'install.packages(".", repos = NULL, type = "source")'
+```
+
+*Note: This avoids GitHub authentication issues and ensures the version matches your local code.*
+
+### Pipeline Usage
+
+The `run_tspecies.py` script automates the entire workflow: **BLASTP (RBH) → MAFFT Alignment → AXT Conversion → KaKs Calculation → Tspecies Estimation**.
+
+1. **Prepare Input Files**
+
+You need four FASTA files for your two species (e.g., Species A and Species B):
+
+- **CDS files**: Coding sequences (Nucleotides).
+- **PEP files**: Protein sequences (Amino Acids).
+
+2. **Run Analysis**
+
+Execute the script by providing the paths to your files:
+
+```bash
+python run_tspecies.py \
+  --cds1 path/to/speciesA.cds.fa \
+  --cds2 path/to/speciesB.cds.fa \
+  --pep1 path/to/speciesA.pep.fa \
+  --pep2 path/to/speciesB.pep.fa \
+  --mu 1.2e-8 \
+  --g 1 \
+  --out results_folder
+```
+
+#### **Arguments**
+
+- `--cds1 / --cds2`: Paths to CDS FASTA files.
+- `--pep1 / --pep2`: Paths to Protein FASTA files.
+- `--mu`: Neutral mutation rate per site per generation.
+- `--g`: Generation time in years (default is 1).
+- `--out`: Directory for output files.
+- `--threads`: Number of CPU cores to use (default 4).
+
+#### Outputs
+
+Check the `--out` directory for results:
+
+- `tspecies_console_log.txt`: The final report containing predicted ***Ne***, **Divergence Time**, and **Corrected *Ks***.
+- `kaks_results.txt`: Raw Ks values calculated by KaKs_Calculator.
+- `input.axt`: The aligned sequences used for Ks calculation.
+
+### Troubleshooting
+
+> "KaKs_Calculator: Command not found"
+
+Depending on your OS and the version installed via Conda, the command name might differ. 
+
+- Try running `which KaKs_Calculator` or `which kaks` in your terminal.
+- If the name is different (e.g., `kakscalculator2`), update line 147 in `run_tspecies.py` to match the correct command name.
+
+> "Error in if (tspc <= 0)" 
+
+This error typically occurs if the R script cannot find the "Ks" column in the output of KaKs_Calculator. 
+
+- Ensure you are using **KaKs_Calculator 2.0 or 3.0**.
+- If your version uses a different header (like "dS" instead of "Ks"), you may need to manually edit the R script template in `run_tspecies.py`.
 
 ## License
 

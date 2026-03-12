@@ -1,0 +1,14 @@
+name: tspecies_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.9
+  - biopython          # Python 处理序列必用
+  - blast              # 用于 RBH 寻找同源基因
+  - mafft              # 用于序列对齐
+  - kakscalculator2    # Conda 上的 KaKs_Calculator 2.0 版本
+  - r-base>=4.2        # R 基础环境
+  - r-mgcv             # 你 R 包的统计依赖
+  - r-devtools         # 用于在环境内安装你的 Tspecies 包
