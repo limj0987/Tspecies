@@ -12,6 +12,15 @@ Tspecies employs a pre-fitted Generalized Additive Model (GAM) or uses the formu
 - Computationally efficient workflow
 - Robust to moderate demographic fluctuations
 
+## Versions
+- **v2.0 (Latest)**: Recommended for all users. Supports pre-corrected Ks input (e.g., from KaKs_Calculator).
+- **v1.0**: Original version.
+
+## 2.0 Update Note
+We added the `jc_correction` option. 
+- If using our automated pipeline (`run_tspecies.py`), correction is now handled by KaKs_Calculator, and the R package will skip redundant JC correction to avoid `NA` results.
+- If manually inputting raw $d/L$ values, keep `jc_correction = TRUE`.
+
 ## 1. Installation for *Ks*-value Input
 
 To install the development version from GitHub:
@@ -37,7 +46,7 @@ Tspecies(Ks = Ks_values, miu = neutral_mutation_rate)
 ### Main Function
 
 ```R
-Tspecies(Ks, miu, g)
+Tspecies(Ks, miu, g, jc_correction = TRUE)
 ```
 
 #### Arguments
@@ -50,6 +59,7 @@ Tspecies(Ks, miu, g)
 
 - `g`: Generation time (year)
   - Optional input. The default `g` is 1 (year)
+- `jc_correction`: Logical. Whether to apply **Jukes-Cantor correction**. Default is `TRUE`.
 
 
 #### Returns

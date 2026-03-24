@@ -160,7 +160,7 @@ if(length(valid_ks) < 50) {{
 cat("Running GAM prediction...\\n")
 # Capture output to file or console
 sink("{out_dir}/tspecies_console_log.txt")
-Tspecies(Ks = valid_ks, miu = {mu}, g = {g})
+Tspecies(Ks = valid_ks, miu = {mu}, g = {g}, jc_correction = FALSE)
 sink()
 
 cat("Analysis complete! Check {out_dir}/tspecies_console_log.txt for detailed logs.\\n")

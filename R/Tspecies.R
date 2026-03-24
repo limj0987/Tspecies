@@ -9,6 +9,7 @@
 #' @param Ks A vector value representing d/L.
 #' @param miu An numeric value representing neutral mutation rate in generation.
 #' @param g An numeric value of generation time in years, with a default value of 1.
+#' @param jc_correction Logical. If TRUE (default), applies Jukes-Cantor correction for multiple substitutions. Set to FALSE if input Ks is already corrected (e.g., from KaKs_Calculator).
 #' @return A numeric value representing the divergence time of species in generations.
 #' @export
 #'
@@ -18,8 +19,22 @@
 #' @examples
 #' Tspecies(c(0.257, 0.202, 0.066, 0.197, 0.278, 0.089), 0.00000008)
 #'
-Tspecies <- function(Ks, miu, g) {
-  mul_corrected_Ks <- (-3/4)*log(1-((4*Ks)/3))
+Tspecies <- function(Ks, miu, g, jc_correction = TRUE) {
+  if (jc_correction) {
+    valid_idx <- Ks < 0.75 & Ks > 0
+    if (sum(!valid_idx) > 0) {
+      warning(paste("Dropped", sum(!valid_idx), "Ks values >= 0.75 or <= 0 to avoid mathematical errors in JC correction."))
+    }
+    valid_Ks <- Ks[valid_idx]
+
+    if (length(valid_Ks) < 2) {
+      stop("Not enough valid Ks values (0 < Ks < 0.75) for calculation.")
+    }
+    mul_corrected_Ks <- (-3/4)*log(1-((4*valid_Ks)/3))
+  } else {
+    mul_corrected_Ks <- Ks[Ks > 0]
+  }
+
   Ks_variance <- var(mul_corrected_Ks)
   Ks_mean <- mean(mul_corrected_Ks)
   package_path <- system.file(package = "Tspecies")
